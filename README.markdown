@@ -1,3 +1,7 @@
+# This plugin is a work in progress.
+For now, refer to the very-wonderful parent plugin [http://github.com/vinyll/sfMediaBrowserPlugin](http://github.com/vinyll/sfMediaBrowserPlugin)
+
+
 # symfony 1.2/1.3/1.4 library upload assets manager
 
 
