@@ -17,6 +17,14 @@
  */
 class sfMediaBrowserStringUtils
 {
+
+  /**
+   * Slugify's a string.
+   *
+   * @static
+   * @param  string $text The text to slugify
+   * @return string
+   */
   public static function slugify($text)
   {
     $str = strtolower($text);

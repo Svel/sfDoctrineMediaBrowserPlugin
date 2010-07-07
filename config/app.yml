@@ -9,7 +9,7 @@ all:
     thumbnails_dir:         .thumbnails    # Directory name for storing thumbnails
     thumbnails_max_width:   64             # If thumbnails are enabled, you may define their size
     thumbnails_max_height:  64   
-    ## Template assets. Please consider using sfAssetsManagerlugin instead !          
+    ## Template assets. Please consider using sfAssetsManagerPlugin instead !          
     assets_list:                           # Web assets used for the list template.
       js:                                  #   You may change this to use your own.
       #  - /sfMediaBrowserPlugin/js/list.js # You should disable this line if you use JQuery.
@@ -29,7 +29,7 @@ all:
       js:
         - /sfMediaBrowserPlugin/js/FilePicker.js
         - /sfMediaBrowserPlugin/js/popup.js
-    file_types:                           # define file_types is usefull for displaying icons in browser
+    file_types:                           # define file_types is useful for displaying icons in browser
       document:                           # type of file (also used as default icon name)
         extensions: [doc, xls, xcf, ai]   # extensions associated to this type
         icon:       doc                   # optional icon file name, without extension
