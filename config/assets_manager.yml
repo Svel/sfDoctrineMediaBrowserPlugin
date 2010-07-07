@@ -1,3 +1,4 @@
+# See sfAssetsManagerPlugin
 packages:
   sfMediaBrowser.list.jquery: 
     js:                                  

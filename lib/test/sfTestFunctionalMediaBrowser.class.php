@@ -1,4 +1,11 @@
 <?php
+/**
+ * Base functional test class to assist with testing.
+ * 
+ * @package     sfMediaBrowserPlugin
+ * @subpackage  test
+ * @author Vincent Agnano <vincent.agnano@particul.es>
+ */
 class sfTestFunctionalMediaBrowser extends sfTestFunctional
 {
   /**
@@ -12,6 +19,7 @@ class sfTestFunctionalMediaBrowser extends sfTestFunctional
       info(sprintf(' Creating a directory "%s"', $dirname))->
       click('#sf_media_browser_mkdir form input.submit', array('directory' => array('name' => $dirname)))->
       followRedirect();
+
     return $this;
   }
   
@@ -27,6 +35,7 @@ class sfTestFunctionalMediaBrowser extends sfTestFunctional
       sprintf('#sf_media_browser_list li.folder label.name:contains(%s)', $dirname),
       $expected
     );
+
     return $this;
   }
   
@@ -42,6 +51,7 @@ class sfTestFunctionalMediaBrowser extends sfTestFunctional
     $this->info(sprintf(' Deleting directory "%s"', $dirname))->
       click(sprintf('#sf_media_browser_list .folder label.name:contains(%s)+div.action a.delete', $dirname))->
       followRedirect();
+
     return $this;
   }
   
@@ -51,6 +61,7 @@ class sfTestFunctionalMediaBrowser extends sfTestFunctional
     $this->info(sprintf(' Uploading file "%s"', $file))->
       click('#sf_media_browser_upload form input.submit', array('upload' => array('file' => $file)))->
       followRedirect();
+
     return $this;
   }
   
@@ -58,6 +69,7 @@ class sfTestFunctionalMediaBrowser extends sfTestFunctional
   public function fileExists($filename, $expected = true)
   {
     $this->with('response')->checkElement(sprintf('#sf_media_browser_list .file label.name:contains(%s)', $filename), $expected);
+
     return $this;
   }
   
@@ -67,6 +79,7 @@ class sfTestFunctionalMediaBrowser extends sfTestFunctional
     $this->info(sprintf(' Deleting file "%s"', $filename))->
       click(sprintf('#sf_media_browser_list .file label.name:contains(%s)+div.action a.delete', $filename))->
       followRedirect();
+
     return $this;
   }
 }

@@ -9,7 +9,7 @@ all:
     thumbnails_dir:         .thumbnails    # Directory name for storing thumbnails
     thumbnails_max_width:   64             # If thumbnails are enabled, you may define their size
     thumbnails_max_height:  64   
-    ## Template assets. Please consider using sfAssetsManagerlugin instead !          
+    ## Template assets. Please consider using sfAssetsManagerPlugin instead !          
     assets_list:                           # Web assets used for the list template.
       js:                                  #   You may change this to use your own.
       #  - /sfMediaBrowserPlugin/js/list.js # You should disable this line if you use JQuery.

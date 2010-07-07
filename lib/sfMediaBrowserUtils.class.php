@@ -22,6 +22,13 @@ class sfMediaBrowserUtils
 
   public static $icons_path;
 
+  /**
+   * Returns the string filetype for a given file extension.
+   *
+   * @static
+   * @param  string $extension The extension of a filename (without the .)
+   * @return string
+   */
   static public function getTypeFromExtension($extension)
   {
     $extension = self::cleanString($extension);
@@ -36,7 +43,14 @@ class sfMediaBrowserUtils
     return 'file';
   }
   
-
+  /**
+   * Returns the string filename (e.g. file.png) to be used as the icon
+   * that represents the given file type.
+   *
+   * @static
+   * @param  string $type The string file type
+   * @return string
+   */
   static public function getIconFromType($type)
   {
     $types = self::getFileTypes();
@@ -49,24 +63,42 @@ class sfMediaBrowserUtils
             ;
       return $dir.'/'.$icon.'.png';
     }
+
     return $dir.'/file.png';
-    
   }
 
-  
+  /**
+   * Returns the name of an asset with the extension stripped off
+   *
+   * @static
+   * @param  string $file The full filename (e.g. my_photo.png)
+   * @return string
+   */
   static public function getNameFromFile($file)
   {
     $dot_position = strrpos($file, '.');
     return $dot_position ? substr($file, 0, $dot_position) : $file;
   }
   
-  
+  /**
+   * Returns the file extension (without the .) for a file.
+   *
+   * @static
+   * @param  string $file The full filename (e.g. my_photo.png)
+   * @return string
+   */
   static public function getExtensionFromFile($file)
   {
     return strtolower(substr(strrchr($file, '.'), 1));
   }
 
-
+  /**
+   * Returns the icon to use (e.g. file.png) for a given file extension
+   *
+   * @static
+   * @param  string $extension The file extension (without the .)
+   * @return string
+   */
   static public function getIconFromExtension($extension)
   {
     $dir = '/sfMediaBrowserPlugin/images/icons';
@@ -75,15 +107,16 @@ class sfMediaBrowserUtils
     {
       return $dir.'/'.$extension.'.png';
     }
+
     return self::getIconFromType(self::getTypeFromExtension($extension));
   }
 
-  static public function getTypeFromMime($file)
-  {
-
-  }
-
-
+  /**
+   * Returns the array of file_types config
+   *
+   * @static
+   * @return array
+   */
   static public function getFileTypes()
   {
     return sfConfig::get('app_sf_media_browser_file_types', array());
@@ -92,6 +125,7 @@ class sfMediaBrowserUtils
 
   /**
    * Clean a string : lower cased and trimmed
+   * 
    * @param string string to clean
    * @return string cleaned string
    */
@@ -128,6 +162,7 @@ class sfMediaBrowserUtils
     {
       rmdir($dir);
     }
+
     return @rmdir($path);
   }
   
@@ -135,6 +170,7 @@ class sfMediaBrowserUtils
   /**
    * Loads js and css files to the response. This is an abstraction layer
    * for no dependency of sfAssetsManagerPlugin
+   * 
    * @see sfAssetsManagerPlugin
    * @param string $package package name to load
    * @param sfWebResponse optional. Context Response by default
@@ -169,6 +205,4 @@ class sfMediaBrowserUtils
       }
     }
   }
-  
-
 }
