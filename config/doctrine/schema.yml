@@ -1,0 +1,33 @@
+# The generic asset model.
+# Any specifically-recognized types will be added to a subclass (e.g. image, video)
+sfAsset:
+  columns:
+    name:
+      type:    string(255)
+      notnull: true
+    path:
+      type:    string(255)
+      notnull: true
+    description: clob
+    copyright: string(255)
+    filesize:  integer
+  options:
+    symfony:
+      filter: false
+      form: false
+  actAs:
+    Timestampable:
+
+sfImageAsset:
+  inheritance:
+    extends:    sfAsset
+    type:       column_aggregation
+    keyField:   type
+    keyValue:   image
+
+sfVideoAsset:
+  inheritance:
+    extends:    sfAsset
+    type:       column_aggregation
+    keyField:   type
+    keyValue:   video

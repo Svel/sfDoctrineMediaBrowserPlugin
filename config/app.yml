@@ -29,24 +29,33 @@ all:
       js:
         - /sfMediaBrowserPlugin/js/FilePicker.js
         - /sfMediaBrowserPlugin/js/popup.js
-    file_types:                           # define file_types is usefull for displaying icons in browser
+    file_types:                           # define file_types is useful for displaying icons in browser
       document:                           # type of file (also used as default icon name)
         extensions: [doc, xls, xcf, ai]   # extensions associated to this type
         icon:       doc                   # optional icon file name, without extension
+        model:      sfAsset
       image:                              
-        extensions: [png, jpg, jpeg, gif] 
+        extensions: [png, jpg, jpeg, gif]
+        model:      sfImageAsset
       pdf:
         extensions: [pdf]
+        model:      sfAsset
       bin:
         extensions: [bin, exe, sh, bat, deb, yum]
+        model:      sfAsset
       video:
         extensions: [wmv, avi, mpg, mpeg, flv, mp4]
+        model:      sfVideoAsset
       audio:
         extensions: [ogg, mp3, flac, wma, cda]
+        model:      sfAsset
       text:
         extensions: [txt]
+        model:      sfAsset
       tarball:
         extensions: [tar, gz, zip, bzip, gzip, rar, 7z]
+        model:      sfAsset
+
   sfImageTransformPlugin:       # see sfImageTransformPlugin for more info.
     mime_type:
       auto_detect:  true
